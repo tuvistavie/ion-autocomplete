@@ -1,5 +1,5 @@
 /*
- * ion-autocomplete 0.3.2
+ * @claude/ion-autocomplete 0.3.2
  * Copyright 2016 Danny Povolotski 
  * Copyright modifications 2016 Guy Brand 
  * https://github.com/guylabs/ion-autocomplete
@@ -92,7 +92,7 @@ angular.module('ion-autocomplete', []).directive('ionAutocomplete', [
                     '<button class="ion-autocomplete-cancel button button-clear" ng-click="viewModel.cancelClick()">{{viewModel.cancelLabel}}</button>',
                     '</div>',
                     '<ion-content class="has-header">',
-                    '<ion-item class="item-divider">{{viewModel.selectedItemsLabel}}</ion-item>',
+                    '<ion-item class="item-divider" ng-if="(viewModel.isArray(viewModel.selectedItems) && viewModel.selectedItems.length > 0) || !viewModel.isArray(viewModel.selectedItems) && viewModel.getItemValue(viewModel.selectedItems, viewModel.itemViewValueKey)">{{viewModel.selectedItemsLabel}}</ion-item>',
                     '<ion-item ng-if="viewModel.isArray(viewModel.selectedItems)" ng-repeat="selectedItem in viewModel.selectedItems track by $index" class="item-icon-left item-icon-right item-text-wrap">',
                     '<i class="icon ion-checkmark"></i>',
                     '{{viewModel.getItemValue(selectedItem, viewModel.itemViewValueKey)}}',
